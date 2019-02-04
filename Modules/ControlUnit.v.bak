@@ -27,7 +27,7 @@ module tb_ControlUnit();
 reg [4:0] OpCode;
 reg CLK;
 //Outputs
-wire RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, MemWrite, [1:0] ALUSrc, RegWrite, JAL;
+wire RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, MemWrite, [1:0] ALUSrc, RegWrite;
 
 
 always
