@@ -11,9 +11,9 @@ namespace testMIPS
 			"s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7" ,
 			"t8", "t9", "k0", "k1", "gp", "sp", "fp", "ra"};
 
-		readonly static String[] R_Type_instructions = { "ADD", "AND", "OR", "JR", "SLL", "SLT" };
-		readonly static String[] I_Type_instructions = { "LW", "SW", "BEQ", "ADDI", "ORI" };
-		readonly static String[] J_Type_instructions = { "J", "JAL" };
+		readonly static String[] R_Type_instructions = { "add", "and", "or", "jr", "sll", "slt" };
+		readonly static String[] I_Type_instructions = { "lw", "sw", "beq", "addi", "ori" };
+		readonly static String[] J_Type_instructions = { "j", "jal" };
 		static String program = System.IO.File.ReadAllText(@"C:\Users\omara\Documents\mips.txt");
 		static List<String> instructions = new List<string>(program.Split('\n'));
 		static List<String> binary = new List<String>();
@@ -42,17 +42,17 @@ namespace testMIPS
 				words.RemoveAt(0);
 			}
 
-			if (Array.Exists(R_Type_instructions, x => x.Equals(words[0])))
+			if (Array.Exists(R_Type_instructions, x => x.Equals(words[0].ToLower())))
 			{
 				return R_Type(words.ToArray());
 			}
 
-			if (Array.Exists(I_Type_instructions, x => x.Equals(words[0])))
+			if (Array.Exists(I_Type_instructions, x => x.Equals(words[0].ToLower())))
 			{
 				return I_Type(words.ToArray());
 			}
 
-			if (Array.Exists(J_Type_instructions, x => x.Equals(words[0])))
+			if (Array.Exists(J_Type_instructions, x => x.Equals(words[0].ToLower())))
 			{
 				return J_Type(words.ToArray());
 			}
@@ -89,31 +89,31 @@ namespace testMIPS
 			String shamt = "00000";
 			String function = "";
 
-			switch (array[0])
+			switch (array[0].ToLower())
 			{
-				case "ADD":
+				case "add":
 					function = "100000";
 					break;
 
-				case "SLL":
+				case "sll":
 					function = "000000";
 					shamt = Convert.ToString(Int32.Parse(array[3]), 2).PadLeft(5, '0');
 					t = "00000";
 					break;
 
-				case "AND":
+				case "and":
 					function = "100100";
 					break;
 
-				case "OR":
+				case "or":
 					function = "100101";
 					break;
 
-				case "SLT":
+				case "slt":
 					function = "101010";
 					break;
 
-				case "JR":
+				case "jr":
 					function = "001000";
 					t = "00000";
 					d = "00000";
@@ -137,13 +137,13 @@ namespace testMIPS
 				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(rs.ToLower().Trim())), 2).PadLeft(5, '0');
 				immediate = Convert.ToString(Int16.Parse(array[2].Substring(0, array[2].IndexOf('('))), 2).PadLeft(16, '0');
 
-				switch (array[0])
+				switch (array[0].ToLower())
 				{
-					case "LW":
+					case "lw":
 						opCode = "100011";
 						break;
 
-					case "SW":
+					case "sw":
 						opCode = "101011";
 						break;
 				}
@@ -153,17 +153,17 @@ namespace testMIPS
 				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
 				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
 				immediate = Convert.ToString(Int16.Parse(array[3]), 2).PadLeft(16, '0');
-				switch (array[0])
+				switch (array[0].ToLower())
 				{
-					case "ADDI":
+					case "addi":
 						opCode = "001000";
 						break;
 
-					case "ORI":
+					case "ori":
 						opCode = "001101";
 						break;
 
-					case "BEQ":
+					case "beq":
 						opCode = "000100";
 						s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
 						t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
@@ -199,13 +199,13 @@ namespace testMIPS
 
 			String immediate = Convert.ToString(offset, 2).PadLeft(26, '0');
 
-			switch (array[0])
+			switch (array[0].ToLower())
 			{
-				case "J":
+				case "j":
 					opCode = "000010";
 					break;
 
-				case "JAL":
+				case "jal":
 					opCode = "000011";
 					break;
 			}
