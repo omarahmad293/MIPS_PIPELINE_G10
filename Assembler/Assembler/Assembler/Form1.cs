@@ -344,7 +344,6 @@ namespace Assembler
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(PATH);
             program = System.IO.File.ReadAllText(PATH);
             instructions = new List<string>(program.Split('\n'));
             Assembler();
