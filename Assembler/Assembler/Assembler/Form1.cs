@@ -346,6 +346,7 @@ namespace Assembler
         {
             MessageBox.Show(PATH);
             program = System.IO.File.ReadAllText(PATH);
+            instructions = new List<string>(program.Split('\n'));
             Assembler();
         }
     }
