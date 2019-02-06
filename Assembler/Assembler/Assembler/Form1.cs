@@ -15,6 +15,8 @@ namespace Assembler
 {
     public partial class Form1 : Form
     {
+      
+
         public static String PATH = Path.GetTempFileName(); // Modifiable
         //Path.GetTempFileName
         //--------------------------------Binary Converting--------------------------------------------
@@ -336,11 +338,14 @@ namespace Assembler
 
         private void button3_Click(object sender, EventArgs e)
         {
-            richTextBox1.SaveFile(PATH, RichTextBoxStreamType.RichText);
+            //richTextBox1.SaveFile(PATH, RichTextBoxStreamType.RichText);
+            System.IO.File.WriteAllText(PATH, richTextBox1.Text.Replace("\n", Environment.NewLine));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(PATH);
+            program = System.IO.File.ReadAllText(PATH);
             Assembler();
         }
     }
