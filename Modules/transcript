@@ -1,2 +1,140 @@
-# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
-# OpenFile {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/ControlUnit.v}
+# Reading D:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:52 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v 
+# ** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+# 
+# End time: 05:52:52 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlib work
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Adder.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Adder.v 
+# -- Compiling module Adder
+# 
+# Top level modules:
+# 	Adder
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ALU.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ALU.v 
+# -- Compiling module ALU
+# -- Compiling module tb_ALU
+# 
+# Top level modules:
+# 	tb_ALU
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ALU_Control.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ALU_Control.v 
+# -- Compiling module ALU_Control
+# -- Compiling module ALU_Control_tb
+# 
+# Top level modules:
+# 	ALU_Control_tb
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v 
+# -- Compiling module ControlUnit
+# ** Error: (vlog-13069) D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v(5): near "[": syntax error, unexpected '[', expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER.
+# 
+# ** Error: D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v(11): (vlog-13205) Syntax error found in the scope following 'ALUSrc'. Is there a missing '::'?
+# 
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/DataMemory.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/DataMemory.v 
+# -- Compiling module dataMem
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/MUX.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/MUX.v 
+# -- Compiling module MUX
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/prog_mem101.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/prog_mem101.v 
+# -- Compiling module prgmem
+# 
+# Top level modules:
+# 	prgmem
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/prog_memtb.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/prog_memtb.v 
+# -- Compiling module prgmemtb
+# 
+# Top level modules:
+# 	prgmemtb
+# End time: 05:52:55 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Registers.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:55 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Registers.v 
+# -- Compiling module Registers
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 05:52:56 on Feb 06,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Shiftleft2.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:56 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Shiftleft2.v 
+# -- Compiling module Shiftleft2
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 05:52:56 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Signextend.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:52:56 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/Signextend.v 
+# -- Compiling module Signextend
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 05:52:56 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 05:53:34 on Feb 06,2019
+# vlog -reportprogress 300 -work work D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v 
+# -- Compiling module ControlUnit
+# ** Error: (vlog-13069) D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v(5): near "[": syntax error, unexpected '[', expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER.
+# 
+# ** Error: D:/MIPS_PIPELINE_G10/Modules/ControlUnit.v(11): (vlog-13205) Syntax error found in the scope following 'ALUSrc'. Is there a missing '::'?
+# 
+# End time: 05:53:34 on Feb 06,2019, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0

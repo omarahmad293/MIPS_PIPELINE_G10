@@ -2,9 +2,10 @@ module ControlUnit(CLK, OpCode, RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, 
 
 input [4:0] OpCode;
 input CLK;
-output reg RegDst, Jump, Branch, MemRead, MemtoReg, [1:0] ALUOp, MemWrite, ALUSrc, RegWrite, JAL;
+output reg RegDst, Jump, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, JAL;
+output reg [1:0] ALUOp;
 
-always@(posedge clk)
+always@(posedge CLK)
 begin
 
 case (OpCode)
@@ -44,8 +45,8 @@ module tb_ControlUnit();
 reg [4:0] OpCode;
 reg CLK;
 //Outputs
-wire RegDst, Jump, Branch, MemRead, MemtoReg, [1:0]ALUOp, MemWrite, ALUSrc, RegWrite, JAL;
-
+wire RegDst, Jump, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, JAL;
+wire [1:0] ALUOp;
 
 always
 begin
