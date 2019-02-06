@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-giant-panda-polar-bear-we-bare-bears-season-4-we-5c02c894c731c0.5028200615436862928159.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-file-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-3-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-7-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-1281.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
