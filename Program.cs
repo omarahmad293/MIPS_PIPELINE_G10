@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace testMIPS
 {
@@ -10,48 +11,59 @@ namespace testMIPS
 			"s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7" ,
 			"t8", "t9", "k0", "k1", "gp", "sp", "fp", "ra"};
 
-		readonly static String[] R_Type_instructions = { "ADD", "AND", "OR", "JR", "SLL", "SLT" };
-		readonly static String[] I_Type_instructions = { "LW", "SW", "BEQ", "ADDI", "ORI" };
-		readonly static String[] J_Type_instructions = { "J", "JAL" };
+		readonly static String[] R_Type_instructions = { "add", "and", "or", "jr", "sll", "slt" };
+		readonly static String[] I_Type_instructions = { "lw", "sw", "beq", "addi", "ori" };
+		readonly static String[] J_Type_instructions = { "j", "jal" };
+		static String program = System.IO.File.ReadAllText(@"C:\Users\omara\Documents\mips.txt");
+		static List<String> instructions = new List<string>(program.Split('\n'));
+		static List<String> binary = new List<String>();
 
 		static void Main(string[] args)
 		{
-			String instruction = "J LOOP";
-			//"SLL $S1, $S2, 15";
-			//"LW $S2, 50($S1)";
-			//"ADD $S1, $S2, $S3";
+			Assembler();
+		}
 
-			String[] words = SplitInstruction(instruction);
-
-			if (Array.Exists(R_Type_instructions, x => x.Equals(words[0])))
+		static void Assembler()
+		{
+			foreach (String instruction in instructions)
 			{
-				Console.WriteLine(instruction);
-				Console.WriteLine("oooooossssstttttdddddhhhhhffffff");
-				Console.WriteLine(R_Type(words));
-				Console.WriteLine(R_Type(words).Length);
+				binary.Add(Decode(instruction));
 			}
 
-			if (Array.Exists(I_Type_instructions, x => x.Equals(words[0])))
+			System.IO.File.WriteAllLines(@"C:\Users\omara\Documents\mipsBinary.txt", binary);
+		}
+
+		static String Decode(String instruction)
+		{
+			List<String> words = new List<String>(SplitInstruction(instruction));
+
+			if (words[0].IndexOf(':') != -1)
 			{
-				Console.WriteLine(instruction);
-				Console.WriteLine("oooooossssstttttffffffffffffffff");
-				Console.WriteLine(I_Type(words));
-				Console.WriteLine(I_Type(words).Length);
+				words.RemoveAt(0);
 			}
 
-			if (Array.Exists(J_Type_instructions, x => x.Equals(words[0])))
+			if (Array.Exists(R_Type_instructions, x => x.Equals(words[0].ToLower())))
 			{
-				Console.WriteLine(instruction);
-				Console.WriteLine("ooooooaaaaaaaaaaaaaaaaaaaaaaaaaa");
-				Console.WriteLine(J_Type(words));
-				Console.WriteLine(J_Type(words).Length);
+				return R_Type(words.ToArray());
 			}
 
+			if (Array.Exists(I_Type_instructions, x => x.Equals(words[0].ToLower())))
+			{
+				return I_Type(words.ToArray());
+			}
+
+			if (Array.Exists(J_Type_instructions, x => x.Equals(words[0].ToLower())))
+			{
+				return J_Type(words.ToArray());
+			}
+
+			return "";
 		}
 
 		static String[] SplitInstruction(String instruction)
 		{
 			String[] words = instruction.Split(' ');
+
 			for (int i = 0; i < words.Length; i++)
 			{
 				words[i] = words[i].Trim(',', '$');
@@ -62,12 +74,12 @@ namespace testMIPS
 		static String R_Type(String[] array)
 		{
 			String opCode = "000000";
-			String s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower())), 2).PadLeft(5, '0');
+			String s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
 			String d, t;
 			if (array.Length > 2)
 			{
-				d = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower())), 2).PadLeft(5, '0');
-				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[3].ToLower())), 2).PadLeft(5, '0');
+				d = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
+				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[3].ToLower().Trim())), 2).PadLeft(5, '0');
 			}
 			else
 			{
@@ -77,31 +89,31 @@ namespace testMIPS
 			String shamt = "00000";
 			String function = "";
 
-			switch (array[0])
+			switch (array[0].ToLower())
 			{
-				case "ADD":
+				case "add":
 					function = "100000";
 					break;
 
-				case "SLL":
+				case "sll":
 					function = "000000";
 					shamt = Convert.ToString(Int32.Parse(array[3]), 2).PadLeft(5, '0');
 					t = "00000";
 					break;
 
-				case "AND":
+				case "and":
 					function = "100100";
 					break;
 
-				case "OR":
+				case "or":
 					function = "100101";
 					break;
 
-				case "SLT":
+				case "slt":
 					function = "101010";
 					break;
 
-				case "JR":
+				case "jr":
 					function = "001000";
 					t = "00000";
 					d = "00000";
@@ -120,41 +132,41 @@ namespace testMIPS
 
 			if (array.Length == 3) //LW or SW
 			{
-				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower())), 2).PadLeft(5, '0');
-				String rs = array[2].Substring(array[2].IndexOf('$') + 1).Trim(')');
-				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(rs.ToLower())), 2).PadLeft(5, '0');
+				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
+				String rs = array[2].Substring(array[2].IndexOf('$') + 1).Trim().Trim(')');
+				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(rs.ToLower().Trim())), 2).PadLeft(5, '0');
 				immediate = Convert.ToString(Int16.Parse(array[2].Substring(0, array[2].IndexOf('('))), 2).PadLeft(16, '0');
 
-				switch (array[0])
+				switch (array[0].ToLower())
 				{
-					case "LW":
+					case "lw":
 						opCode = "100011";
 						break;
 
-					case "SW":
+					case "sw":
 						opCode = "101011";
 						break;
 				}
 			}
 			else
 			{
-				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower())), 2).PadLeft(5, '0');
-				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower())), 2).PadLeft(5, '0');
+				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
+				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
 				immediate = Convert.ToString(Int16.Parse(array[3]), 2).PadLeft(16, '0');
-				switch (array[0])
+				switch (array[0].ToLower())
 				{
-					case "ADDI":
+					case "addi":
 						opCode = "001000";
 						break;
 
-					case "ORI":
+					case "ori":
 						opCode = "001101";
 						break;
 
-					case "BEQ":
+					case "beq":
 						opCode = "000100";
-						s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower())), 2).PadLeft(5, '0');
-						t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower())), 2).PadLeft(5, '0');
+						s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
+						t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
 						break;
 				}
 			}
@@ -163,16 +175,37 @@ namespace testMIPS
 
 		static String J_Type(String[] array)
 		{
+			String instruction = array[0] + ' ' + array[1];
 			String opCode = "";
-			String immediate = array[1]; //TODO: Calculate offset between next instruction and label and convert to binary
+			int offset = 0;
 
-			switch (array[0])
+			for (int i = 0; i < instructions.Count; i++)
 			{
-				case "J":
+				if (instructions[i].IndexOf(array[1]) == 0) //Found label
+				{
+					int x = 0;
+
+					for (int j = 0; j < instructions.Count; j++)
+					{
+						if (instructions[j] == instruction)
+						{
+							x = j;
+							break;
+						}
+					}
+					offset = x + 1 - i;
+				}
+			}
+
+			String immediate = Convert.ToString(offset, 2).PadLeft(26, '0');
+
+			switch (array[0].ToLower())
+			{
+				case "j":
 					opCode = "000010";
 					break;
 
-				case "JAL":
+				case "jal":
 					opCode = "000011";
 					break;
 			}

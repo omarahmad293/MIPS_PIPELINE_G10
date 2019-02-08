@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assembler.Properties {
+namespace mipsPipeline.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Assembler.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Assembler.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("mipsPipeline.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,70 +63,9 @@ namespace Assembler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_file_128 {
+        internal static System.Drawing.Bitmap Pc9Vh {
             get {
-                object obj = ResourceManager.GetObject("add-file-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap folder_3_128 {
-            get {
-                object obj = ResourceManager.GetObject("folder-3-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap kisspng_giant_panda_polar_bear_we_bare_bears_season_4_we_5c02c894c731c0_5028200615436862928159 {
-            get {
-                object obj = ResourceManager.GetObject("kisspng-giant-panda-polar-bear-we-bare-bears-season-4-we-5c02c894c731c0.502820061" +
-                        "5436862928159", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap play_7_128 {
-            get {
-                object obj = ResourceManager.GetObject("play-7-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap power_128 {
-            get {
-                object obj = ResourceManager.GetObject("power-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap power_1281 {
-            get {
-                object obj = ResourceManager.GetObject("power-1281", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_128 {
-            get {
-                object obj = ResourceManager.GetObject("save-128", resourceCulture);
+                object obj = ResourceManager.GetObject("Pc9Vh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

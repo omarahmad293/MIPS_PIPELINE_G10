@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{862E47EA-54A9-4F1F-B24E-DAB1DAAB29D1}</ProjectGuid>
+    <ProjectGuid>{AFC69772-9BE0-4E30-B0D3-5942943F11CF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Assembler</RootNamespace>
-    <AssemblyName>Assembler</AssemblyName>
+    <RootNamespace>mipsPipeline</RootNamespace>
+    <AssemblyName>mipsPipeline</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -81,25 +81,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kisspng-giant-panda-polar-bear-we-bare-bears-season-4-we-5c02c894c731c0.5028200615436862928159.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add-file-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder-3-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play-7-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\power-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\power-1281.png" />
+    <None Include="Resources\Pc9Vh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
