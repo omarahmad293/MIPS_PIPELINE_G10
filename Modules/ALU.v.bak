@@ -7,7 +7,7 @@ output [31:0] Result;
 output Zero_flag;
 
 reg [31:0] Result_reg;
-assign Result = Result_reg;
+
 assign Zero_flag = (Result_reg==0)?1:0;
 
 always
