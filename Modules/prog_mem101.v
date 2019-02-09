@@ -7,7 +7,7 @@ reg [7:0]mem[0:63];
 
 initial
 begin
-$readmemh("D:/memfile.txt",mem);
+$readmemb("c:/ProgramMem.txt",mem);
 end
 
 always@(prgcntr)

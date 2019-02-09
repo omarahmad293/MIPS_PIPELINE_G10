@@ -45,7 +45,20 @@ namespace Assembler
                 binary.Add(Decode(instruction));
             }
 
+            Spacing();
+
             System.IO.File.WriteAllLines(@"c:\ProgramMem.txt", binary);
+        }
+
+        static void Spacing()
+        {
+            int i;
+
+            for (i=0;i<binary.Count;i++) 
+            {
+                binary[i] = binary[i].Substring(0, 8) + " " + binary[i].Substring(8, 8) + " " + binary[i].Substring(16, 8) + " " + binary[i].Substring(24, 8);
+            }
+
         }
 
         static String Decode(String instruction)
