@@ -1,13 +1,13 @@
-module MUX(IN_1, IN_2, Sel, Out);
-input[31:0] IN_1;
-input[31:0] IN_2;
+module MUX5(IN_1, IN_2, Sel, Out);
+input[4:0] IN_1;
+input[4:0] IN_2;
 input Sel;
-output[31:0] Out;
+output[4:0] Out;
 
 assign Out = (Sel == 1)?IN_2:IN_1;
 
 endmodule
-
+/*
 module tb_MUX();
 reg[31:0] IN_1,IN_2;
 reg Sel;
@@ -30,4 +30,4 @@ end
 
 MUX M1(IN_1, IN_2, Sel, Out);
 endmodule
-
+*/

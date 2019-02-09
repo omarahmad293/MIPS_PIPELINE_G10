@@ -1,4 +1,4 @@
-module ALU(Read_data_1,Data_2,ALU_control,Result,Zero_flag); 
+module alu(Read_data_1,Data_2,ALU_control,Result,Zero_flag); 
 
 input [31:0] Read_data_1;
 input [31:0] Data_2;
@@ -7,9 +7,13 @@ output [31:0] Result;
 output Zero_flag;
 
 reg [31:0] Result_reg;
-assign Result = Result_reg;
+//assign Result = Result_reg;
 assign Zero_flag = (Result_reg==0)?1:0;
 
+assign Result = (ALU_control == 0) ? (Read_data_1&Data_2) : (ALU_control == 1) ? (Read_data_1|Data_2) :
+		(ALU_control == 2) ? (Read_data_1+Data_2) : (ALU_control == 6) ? (Read_data_1-Data_2) :
+		(ALU_control == 7) ? ((Read_data_1>Data_2)?0:1) : 0;
+/*
 always
 begin
 case (ALU_control)
@@ -20,7 +24,7 @@ case (ALU_control)
 	7: Result_reg <= (Read_data_1>Data_2)?0:1; 
 endcase
 end 
-
+*/
 endmodule 
 
 
@@ -33,13 +37,13 @@ module tb_ALU();
  wire[31:0] Result;
  wire Zero_flag;
 
-ALU ALU1(Read_data_1,Data_2,ALU_control,Result,Zero_flag);
+alu ALU1(Read_data_1,Data_2,ALU_control,Result,Zero_flag);
 
 initial
 begin 
 
-$display("Time   .   Data1   .   Data2   .  ALUControl   .   Result   .   Zero_flag");
-$monitor("%d   .   %d   .   %d   .    %d   .	%d",$time,Read_data_1,Data_2,ALU_control,Result,Zero_flag);
+$display("Data1   .   Data2   .  ALUControl   .   Result   .   Zero_flag");
+$monitor("%d   .   %d   .   %d   .    %d   .	%d",Read_data_1,Data_2,ALU_control,Result,Zero_flag);
 
 #2
 //000 AND 001

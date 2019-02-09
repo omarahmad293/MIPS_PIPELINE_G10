@@ -1,0 +1,5 @@
+LOOP: add $s1, $s2, $s1
+and $s3, $s1, $s2
+beq $t2, $t1, 16
+lw $s5, 50($s4)
+j LOOP
