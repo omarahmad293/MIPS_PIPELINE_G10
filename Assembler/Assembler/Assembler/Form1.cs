@@ -46,7 +46,7 @@ namespace Assembler
 
             Spacing();
 
-            System.IO.File.WriteAllLines(@"c:\ProgramMem.txt", binary);
+            System.IO.File.WriteAllLines(@"c:\users\omara\Documents\ProgramMem.txt", binary);
         }
 
         static void Spacing()
@@ -220,8 +220,8 @@ namespace Assembler
                             break;
                         }
                     }
-                    offset = x + 1 - i;
-                }
+					offset = i - (x + 1);
+				}
             }
 
             String immediate = Convert.ToString(offset, 2).PadLeft(26, '0');
@@ -254,7 +254,7 @@ namespace Assembler
         private void button5_Click(object sender, EventArgs e)
         {
             File.Delete(PATH);
-            File.Delete(@"c:\ProgramMem.txt");
+            File.Delete(@"c:\users\omara\Documents\ProgramMem.txt");
             this.Close();
         }
 

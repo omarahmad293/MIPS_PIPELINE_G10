@@ -1,11 +1,10 @@
-module ControlUnit(CLK, OpCode, RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, MemWrite, ALUSrc, RegWrite, JAL);
+module ControlUnit(OpCode, RegDst, Jump, Branch, MemRead, MemtoReg, ALUOp, MemWrite, ALUSrc, RegWrite, JAL);
 
 input [5:0] OpCode;
-input CLK;
 output reg RegDst, Jump, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, JAL;
 output reg [1:0] ALUOp;
 
-always@(posedge CLK)
+always@(OpCode)
 begin
 
 case (OpCode)

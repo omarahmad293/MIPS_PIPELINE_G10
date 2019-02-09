@@ -1,8 +1,7 @@
-module ALU_Control(ALU_control, control, funct, CLK);
+module ALU_Control(ALU_control, control, funct);
 
 input [1:0] control; //2 bits coming from the control unit
 input [5:0] funct; //6 function bits coming from the instruction
-input CLK;
 
 output reg [2:0] ALU_control; //3 bits going to the alu
 
@@ -14,7 +13,7 @@ parameter AND = 3'b000;
 parameter OR  = 3'b001;
 parameter SLT = 3'b111;
 
-always @(posedge CLK)
+always @(control, funct)
 begin
 
 case (control)
