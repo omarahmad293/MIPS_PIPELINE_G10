@@ -1,4 +1,4 @@
-module ALU(Read_data_1,Data_2,ALU_control,Result,Zero_flag); 
+module alu(Read_data_1,Data_2,ALU_control,Result,Zero_flag); 
 
 input [31:0] Read_data_1;
 input [31:0] Data_2;
