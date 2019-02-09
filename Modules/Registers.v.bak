@@ -37,7 +37,7 @@ always@(posedge Clock)
 	begin
 		if(RegWrite == 1)
 			begin
-				Registers[Write_register] <= Write_data;
+				Registers[Write_register] <= 15;
 			end
 
 	end

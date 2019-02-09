@@ -29,7 +29,6 @@ case (control)
 			6'b101010: ALU_control <= SLT;
 		endcase
 		end
-	2'b11: ALU_control <= OR;
 endcase
 end
 

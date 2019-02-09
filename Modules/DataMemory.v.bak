@@ -1,3 +1,4 @@
+module dataMem(readData, writeData, address, memWrite, memRead, CLK);
 /*
 Data memory module
 ------------------
@@ -7,10 +8,20 @@ Note: assuming address bus is 5-bit then memory is 32*32 bits
 */
 output reg [31:0] readData;
 input [31:0] writeData;
-input [4:0] address;
+input [31:0] address;
 input memWrite,memRead, CLK;
 
 reg [31:0] mem [0:31];
+
+integer i = 0;
+
+initial
+begin
+	for (i = 0; i < 32; i = i+1)
+	begin
+		mem[i] = 0;
+	end
+end
 
 always @(posedge CLK)
 begin
@@ -35,7 +46,7 @@ Data memory test bench
 inputs : writeData, address, memRead, memWrite, CLK
 outputs: readdata
 */
-module tb();
+module tb1234();
 
 reg [31:0] writeData;
 reg [4:0] address;
