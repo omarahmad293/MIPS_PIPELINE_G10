@@ -31,15 +31,16 @@ namespace Assembler
 		static String program = System.IO.File.ReadAllText(PATH);
 		static List<String> instructions = new List<string>(program.Split('\n'));
 		static List<String> binary = new List<String>();
+        static String[,] Hazard = new String [30, 4];
 
-		//-----------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------
 
 
 
-		//----------------Decoding Fuctions------------------------------------------------
-		static void Assembler()
+        //----------------Decoding Fuctions------------------------------------------------
+        static void Assembler()
 		{
-			foreach (String instruction in instructions)
+            foreach (String instruction in instructions)
 			{
 				binary.Add(Decode(instruction));
 			}
@@ -47,9 +48,10 @@ namespace Assembler
 			Spacing();
 
 			System.IO.File.WriteAllLines(@"C:\Users\lamee\Documents\MIPSProgramMem.txt", binary);
-		}
+            //Hazard_FUNC();
+        }
 
-		static void Spacing()
+        static void Spacing()
 		{
 			int i;
 
@@ -255,6 +257,41 @@ namespace Assembler
 
 			return opCode + immediate;
 		}
+
+        static void Hazard_FUNC()
+        {
+            for (int i = 0; i < instructions.Count; i++)
+            {
+                String[] rofl = SplitInstruction(instructions[i]);
+                for (int j = 0; j < rofl.Length; j++)
+                    Hazard[i, j] = rofl[j];
+            }
+
+            for (int i = 0; i < 10-2; i++)
+            {
+                if (Hazard[i, 1] == Hazard[i + 1, 2] || Hazard[i, 1] == Hazard[i + 1, 3] ||
+                    Hazard[i, 1] == Hazard[i + 2, 2] || Hazard[i, 1] == Hazard[i + 2, 3])
+                {
+                    String FilePath = @"C:\Users\lamee\Documents\MIPSProgramMem.txt";
+                    String myFile = System.IO.File.ReadAllText(FilePath);
+                    List<String> lines = new List<String>(myFile.Split('\n'));
+                    for (int j = 0; j < lines.Count; j++)
+                    {
+                        if (j == i)
+                        {
+                            lines.Insert(i+1, "\r00000000 00000000 00000000 00000000");
+                            lines.Insert(i + 1, "\r00000000 00000000 00000000 00000000");
+                            lines.Insert(i+1, "\r00000000 00000000 00000000 00000000");
+                        }
+                        System.IO.File.WriteAllLines(FilePath, lines);
+                        break;
+                    }
+                    
+                }
+            }
+        }
+
+        
 
 		//------------------------------------------------------------------------------------------
 		public Form1()
