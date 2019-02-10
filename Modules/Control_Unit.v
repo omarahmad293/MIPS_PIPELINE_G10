@@ -30,7 +30,7 @@ case (OpCode)
 		end
 	6'b 000011: 
 		begin	
-			RegWrite<=0; MemRead<=0; MemWrite<=0; Branch<=0; Jump<=1; JAL<=1; //jal
+			RegWrite<=1; MemRead<=0; MemWrite<=0; Branch<=0; Jump<=1; JAL<=1; //jal
 		end	
 	6'b 001000: //addi
 		begin
