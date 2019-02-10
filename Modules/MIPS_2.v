@@ -45,7 +45,7 @@ reg EXMEM_Branch, EXMEM_MemRead, EXMEM_MemtoReg, EXMEM_MemWrite, EXMEM_RegWrite,
 reg EXMEM_ZERO;
 reg [31:0] ALU_RESULT, WRITE_DATA, BRANCH;
 reg [4:0] WRITE_REG;
-
+reg [31:0]EXMEM_PC;
 reg [31:0] EXMEM_JUMP_ADDRESS;
 
 //-------------------------------------------Stage 4--------------------------------------
@@ -55,10 +55,13 @@ reg MEMWB_RegWrite, MEMWB_MemtoReg, MEMWB_JAL;
 
 reg [31:0] MEMWB_ALU_RESULT, MEM_OUT;
 reg [4:0] MEMWB_WRITE_REG;
+reg [31:0] MEMWB_PC;
 
 //-------------------------------------------Stage 5--------------------------------------
 
 wire [31:0] WB_DATA_WIRE;
+wire [4:0] JAL_ADDRESS;
+wire [31:0] JAL_DATA;
 
 
 //-------------------------------------------Stage 1--------------------------------------
@@ -69,11 +72,11 @@ Adder NEXT_INSTR(PC, 4, IFID_PC_WIRE);
 prgmem PROGRAM_MEMORY(IFID_INSTR_WIRE,PC);
 
 //-------------------------------------------Stage 2--------------------------------------
-Registers REGISTER(IFID_INSTR[25:21], IFID_INSTR[20:16], MEMWB_WRITE_REG, WB_DATA_WIRE, MEMWB_RegWrite, READ_DATA_1_WIRE, READ_DATA_2_WIRE, CLK);
+Registers REGISTER(IFID_INSTR[25:21], IFID_INSTR[20:16], JAL_ADDRESS, JAL_DATA, MEMWB_RegWrite, READ_DATA_1_WIRE, READ_DATA_2_WIRE, CLK);
 ControlUnit CONTROL_UNIT(IFID_INSTR[31:26], IDEX_RegDst_WIRE, IDEX_Jump_WIRE, IDEX_Branch_WIRE, IDEX_MemRead_WIRE, IDEX_MemtoReg_WIRE, IDEX_ALUOp_WIRE, IDEX_MemWrite_WIRE, IDEX_ALUSrc_WIRE, IDEX_RegWrite_WIRE, IDEX_JAL_WIRE);
 Signextend SIGN_EXTEND(IFID_INSTR[15:0], IMMEDIATE_WIRE);
 
-Shiftleft2 SHIFT28(IFID_INSTR[25:0], JUMP_ADDRESS_28);
+Shiftleft2_28 SHIFT28(IFID_INSTR[25:0], JUMP_ADDRESS_28);
 
 //-------------------------------------------Stage 3--------------------------------------
 MUX  M_ALU(IDEX_READ_DATA_2, IDEX_IMMEDIATE, IDEX_ALUSrc, MUX_ALU_WIRE);
@@ -89,8 +92,8 @@ and BRANCH_AND(PC_SRC, EXMEM_Branch, EXMEM_ZERO);
 
 //-------------------------------------------Stage 5--------------------------------------
 MUX REG_RES(MEMWB_ALU_RESULT, MEM_OUT, MEMWB_MemtoReg, WB_DATA_WIRE);
-//MUX JAL_MUX(WB_DATA_WIRE1, 31, MEMWB_JAL, WB_DATA_WIRE2);
-
+MUX5 JAL_ADDRESS_MUX(MEMWB_WRITE_REG, 5'b11111, MEMWB_JAL, JAL_ADDRESS);
+MUX JAL_DATA_MUX (WB_DATA_WIRE, MEMWB_PC, MEMWB_JAL, JAL_DATA);
 
 
 always @(posedge CLK)
@@ -137,6 +140,8 @@ begin
 	BRANCH <= BRANCH_WIRE;
 	WRITE_REG <= WRITE_REG_WIRE;
 
+	EXMEM_PC <= IDEX_PC;
+
 	//EXMEM_JUMP_ADDRESS <= IDEX_JUMP_ADDRESS;
 
 //STAGE 4
@@ -148,6 +153,7 @@ begin
 	MEMWB_WRITE_REG <=WRITE_REG;
 
 	MEMWB_JAL <= EXMEM_JAL;
+	MEMWB_PC <= EXMEM_PC;
 end
 
 

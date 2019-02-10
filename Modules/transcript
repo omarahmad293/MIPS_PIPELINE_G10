@@ -1,0 +1,338 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/Control_Unit.v}
+# Loading project mipss
+# Compile of test_modules.v was successful.
+# Compile of Adder.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ALU_Control.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of DataMemory.v was successful.
+# Compile of MIPS_2.v failed with 3 errors.
+# Compile of MUX.v was successful.
+# Compile of MUX5.v was successful.
+# Compile of prog_mem101.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Shiftleft2.v was successful.
+# Compile of Signextend.v was successful.
+# 13 compiles, 1 failed with 3 errors.
+# Compile of MIPS_2.v failed with 1 errors.
+# Error opening E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/(vlog-13069) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v
+# Path name 'E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/(vlog-13069) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v' doesn't exist.
+# Compile of MIPS_2.v was successful.
+# Compile of MIPS_2.v was successful.
+# Compile of Shiftleft2.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of test_modules.v was successful.
+# Compile of Adder.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ALU_Control.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of DataMemory.v was successful.
+# Compile of MIPS_2.v was successful.
+# Compile of MUX.v was successful.
+# Compile of MUX5.v was successful.
+# Compile of prog_mem101.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Shiftleft2.v was successful.
+# Compile of Signextend.v was successful.
+# 13 compiles, 0 failed with no errors.
+# Compile of test_modules.v was successful.
+# Compile of Adder.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ALU_Control.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of DataMemory.v was successful.
+# Compile of MIPS_2.v was successful.
+# Compile of MUX.v was successful.
+# Compile of MUX5.v was successful.
+# Compile of prog_mem101.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Shiftleft2.v was successful.
+# Compile of Signextend.v was successful.
+# 13 compiles, 0 failed with no errors.
+vsim -gui work.testmips
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui E:\Computer Year 3\TERM1\COProject\MIPS\MIPS_PIPELINE_G10\Modules\Control_Unit.v 
+# Start time: 11:53:31 on Feb 10,2019
+# Loading work.testmips
+# Loading work.MIPS
+# Loading work.MUX
+# Loading work.Adder
+# Loading work.prgmem
+# Loading work.Registers
+# Loading work.ControlUnit
+# Loading work.Signextend
+# Loading work.Shiftleft2_28
+# Loading work.MUX5
+# Loading work.alu
+# Loading work.ALU_Control
+# Loading work.Shiftleft2_32
+# Loading work.dataMem
+# ** Warning: (vsim-3015) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v(95): [PCDPC] - Port size (5) does not match connection size (32) for port 'IN_2'. The port definition is at: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/JAL_ADDRESS_MUX File: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v
+add wave -position insertpoint  \
+sim:/testmips/CLK
+add wave -position insertpoint  \
+sim:/testmips/M1/PC
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDocumentsMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Registers
+restart
+# Closing VCD file "dump.vcd"
+# ** Warning: (vsim-3015) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v(95): [PCDPC] - Port size (5) does not match connection size (32) for port 'IN_2'. The port definition is at: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/JAL_ADDRESS_MUX File: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDocumentsMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+add wave -position insertpoint  \
+sim:/testmips/M1/IFID_INSTR
+restart
+# Closing VCD file "dump.vcd"
+# ** Warning: (vsim-3015) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v(95): [PCDPC] - Port size (5) does not match connection size (32) for port 'IN_2'. The port definition is at: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/JAL_ADDRESS_MUX File: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDocumentsMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+add wave -position insertpoint  \
+sim:/testmips/M1/PROGRAM_MEMORY/mem
+restart
+# Closing VCD file "dump.vcd"
+# ** Warning: (vsim-3015) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v(95): [PCDPC] - Port size (5) does not match connection size (32) for port 'IN_2'. The port definition is at: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/JAL_ADDRESS_MUX File: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDocumentsMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+# Compile of prog_mem101.v was successful.
+# Compile of test_modules.v was successful.
+# Compile of Adder.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ALU_Control.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of DataMemory.v was successful.
+# Compile of MIPS_2.v was successful.
+# Compile of MUX.v was successful.
+# Compile of MUX5.v was successful.
+# Compile of prog_mem101.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Shiftleft2.v was successful.
+# Compile of Signextend.v was successful.
+# 13 compiles, 0 failed with no errors.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.testmips
+# Loading work.MIPS
+# Loading work.MUX
+# Loading work.Adder
+# Loading work.prgmem
+# Loading work.Registers
+# Loading work.ControlUnit
+# Loading work.Signextend
+# Loading work.Shiftleft2_28
+# Loading work.MUX5
+# Loading work.alu
+# Loading work.ALU_Control
+# Loading work.Shiftleft2_32
+# Loading work.dataMem
+# ** Warning: (vsim-3015) E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v(95): [PCDPC] - Port size (5) does not match connection size (32) for port 'IN_2'. The port definition is at: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/JAL_ADDRESS_MUX File: E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MUX5.v
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDocumentsMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+quit -sim
+# Compile of MIPS_2.v was successful.
+# Compile of prog_mem101.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of test_modules.v was successful.
+# Compile of Adder.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ALU_Control.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of DataMemory.v was successful.
+# Compile of MIPS_2.v was successful.
+# Compile of MUX.v was successful.
+# Compile of MUX5.v was successful.
+# Compile of prog_mem101.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Shiftleft2.v was successful.
+# Compile of Signextend.v was successful.
+# 13 compiles, 0 failed with no errors.
+vsim -gui work.testmips
+# vsim 
+# Start time: 12:03:31 on Feb 10,2019
+# Loading work.testmips
+# Loading work.MIPS
+# Loading work.MUX
+# Loading work.Adder
+# Loading work.prgmem
+# Loading work.Registers
+# Loading work.ControlUnit
+# Loading work.Signextend
+# Loading work.Shiftleft2_28
+# Loading work.MUX5
+# Loading work.alu
+# Loading work.ALU_Control
+# Loading work.Shiftleft2_32
+# Loading work.dataMem
+add wave -position insertpoint  \
+sim:/testmips/CLK
+add wave -position insertpoint  \
+sim:/testmips/M1/PC
+run
+# ** Warning: (vsim-7) Failed to open readmem file "C:UserslameeDesktopMIPSProgramMem.txt" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/prog_mem101.v(11)
+#    Time: 0 ns  Iteration: 0  Instance: /testmips/M1/PROGRAM_MEMORY
+restart
+# Closing VCD file "dump.vcd"
+# Compile of prog_mem101.v was successful.
+restart
+# Loading work.prgmem
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/IFID_INSTR
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Registers
+restart
+# Closing VCD file "dump.vcd"
+run
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/DATA_MEMORY/readData \
+sim:/testmips/M1/DATA_MEMORY/writeData \
+sim:/testmips/M1/DATA_MEMORY/address \
+sim:/testmips/M1/DATA_MEMORY/memWrite \
+sim:/testmips/M1/DATA_MEMORY/memRead \
+sim:/testmips/M1/DATA_MEMORY/mem
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/ALU/Result
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/ALU/Read_data_1 \
+sim:/testmips/M1/ALU/Data_2
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Read_register_2
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Read_data_2
+restart
+# Closing VCD file "dump.vcd"
+run
+restart
+# Closing VCD file "dump.vcd"
+run
+run
+restart
+# Closing VCD file "dump.vcd"
+# Compile of DataMemory.v was successful.
+restart
+# Loading work.dataMem
+run
+run
+# Compile of DataMemory.v was successful.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.dataMem
+run
+run
+# Compile of DataMemory.v was successful.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.dataMem
+run
+# Compile of DataMemory.v was successful.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.dataMem
+run
+# Compile of DataMemory.v was successful.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.dataMem
+run
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/DATA_MEMORY/readData
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/WB_DATA_WIRE
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/JAL_DATA
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Write_data
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/Write_register
+add wave -position insertpoint  \
+sim:/testmips/M1/REGISTER/RegWrite
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/MEMWB_RegWrite
+add wave -position insertpoint  \
+sim:/testmips/M1/EXMEM_RegWrite
+restart
+# Closing VCD file "dump.vcd"
+run
+add wave -position insertpoint  \
+sim:/testmips/M1/DATA_MEMORY/address
+restart
+# Closing VCD file "dump.vcd"
+run
+# Compile of DataMemory.v failed with 1 errors.
+# Compile of DataMemory.v was successful.
+restart
+# Closing VCD file "dump.vcd"
+# Loading work.dataMem
+run
+restart
+# Closing VCD file "dump.vcd"
+run

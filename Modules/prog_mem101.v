@@ -8,7 +8,7 @@ reg [7:0]mem[0:63];
 initial
 begin
 
-$readmemb("c:/users/omara/Documents/ProgramMem.txt",mem);
+$readmemb("C:/Users/lamee/Desktop/MIPSProgramMem.txt",mem);
 
 end
 

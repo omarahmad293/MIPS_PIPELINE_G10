@@ -18,7 +18,7 @@ namespace Assembler
 
 		public static String PATH = Path.GetTempFileName(); // Modifiable
 															//Path.GetTempFileName
-															//--------------------------------Binary Converting--------------------------------------------
+	    //--------------------------------Binary Converting--------------------------------------------
 		readonly static String[] registers = {
 			"zero", "at", "v0", "v1", "a0", "a1", "a2", "a3" ,
 			"t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7" ,
@@ -46,7 +46,7 @@ namespace Assembler
 
 			Spacing();
 
-			System.IO.File.WriteAllLines(@"c:\users\omara\Documents\ProgramMem.txt", binary);
+			System.IO.File.WriteAllLines(@"C:\Users\lamee\Documents\MIPSProgramMem.txt", binary);
 		}
 
 		static void Spacing()
@@ -179,22 +179,49 @@ namespace Assembler
 			{
 				s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
 				t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
-				immediate = Convert.ToString(Int16.Parse(array[3]), 2).PadLeft(16, '0');
+			
 				switch (array[0].ToLower())
 				{
 					case "addi":
 						opCode = "001000";
-						break;
+                        immediate = Convert.ToString(Int16.Parse(array[3]), 2).PadLeft(16, '0');
+                        break;
 
 					case "ori":
 						opCode = "001101";
-						break;
+                        immediate = Convert.ToString(Int16.Parse(array[3]), 2).PadLeft(16, '0');
+                        break;
 
 					case "beq":
-						opCode = "000100";
+                        String instruction = array[0] + ' ' + '$' + array[1] + ',' + ' ' + '$' + array[2] + ',' + ' ' + array[3];
+                        opCode = "000100";
 						s = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[1].ToLower().Trim())), 2).PadLeft(5, '0');
 						t = Convert.ToString(Array.FindIndex(registers, x => x.Equals(array[2].ToLower().Trim())), 2).PadLeft(5, '0');
-						break;
+                        
+			            short offset = 0;
+
+			            for (short i = 0; i < instructions.Count; i++)
+			            {
+				            if (instructions[i].IndexOf(array[3]) == 0) //Found label
+				            {
+					            short x = 0;
+
+					            for (short j = 0; j < instructions.Count; j++)
+					            {
+						            if (instructions[j] == instruction)
+						            {
+							            x = j;
+							            break;
+						            }
+					            }
+					            offset = (short) (i - (x + 1));
+                                break;
+				            }
+			            }
+
+			            immediate = Convert.ToString(offset, 2).PadLeft(16, '0');
+			
+                        break;
 				}
 			}
 			return opCode + s + t + immediate;
@@ -202,7 +229,6 @@ namespace Assembler
 
 		static String J_Type(String[] array)
 		{
-			String instruction = array[0] + ' ' + array[1];
 			String opCode = "";
 			String immediate = "";
 
@@ -214,30 +240,7 @@ namespace Assembler
 				}
 			}
 
-			/*
-			int offset = 0;
-
-			for (int i = 0; i < instructions.Count; i++)
-			{
-				if (instructions[i].IndexOf(array[1]) == 0) //Found label
-				{
-					int x = 0;
-
-					for (int j = 0; j < instructions.Count; j++)
-					{
-						if (instructions[j] == instruction)
-						{
-							x = j;
-							break;
-						}
-					}
-					offset = i - (x + 1);
-				}
-			}
-
-
-			String immediate = Convert.ToString(offset, 2).PadLeft(26, '0');
-			*/
+			
 
 			switch (array[0].ToLower())
 			{
@@ -267,7 +270,7 @@ namespace Assembler
 		private void button5_Click(object sender, EventArgs e)
 		{
 			File.Delete(PATH);
-			File.Delete(@"c:\users\omara\Documents\ProgramMem.txt");
+			File.Delete(@"C:\Users\lamee\Documents\ProgramMem.txt");
 			this.Close();
 		}
 

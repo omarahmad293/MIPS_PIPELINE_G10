@@ -6,7 +6,7 @@ Description: It's a MIPS's data memory (main memory) which allow the CPU to perf
 normal read/write operations.
 Note: assuming address bus is 5-bit then memory is 32*32 bits
 */
-output reg [31:0] readData;
+output [31:0] readData;
 input [31:0] writeData;
 input [31:0] address;
 input memWrite,memRead, CLK;
@@ -19,18 +19,16 @@ initial
 begin
 	for (i = 0; i < 32; i = i+1)
 	begin
-		mem[i] = 0;
+		mem[i] = 32'hFFFF_FFFF;
 	end
 end
 
+assign readData = (memRead) ? mem[address] : 32'dx;
+
 always @(posedge CLK)
 begin
-if(memRead)
-begin
-readData <= mem[address];
-end
 
-else if(memWrite)
+if(memWrite)
 begin
 mem[address] <= writeData;
 end
