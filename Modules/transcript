@@ -343,3 +343,5 @@ run
 restart
 # Closing VCD file "dump.vcd"
 run
+# End time: 15:22:22 on Feb 10,2019, Elapsed time: 3:18:51
+# Errors: 0, Warnings: 1

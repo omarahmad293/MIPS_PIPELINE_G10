@@ -51,6 +51,13 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	MUX
 
+} {} {}} {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/DataMemory.v} {1 {vlog -work work -stats=none {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/DataMemory.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module dataMem
+
+Top level modules:
+	dataMem
+
 } {} {}} {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/Shiftleft2.v} {1 {vlog -work work -stats=none {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/Shiftleft2.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module Shiftleft2_32
@@ -88,18 +95,18 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	Registers
 
-} {} {}} {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v} {1 {vlog -work work -stats=none {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v}
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module MIPS
-
-Top level modules:
-	MIPS
-
 } {} {}} {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/ALU_Control.v} {1 {vlog -work work -stats=none {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/ALU_Control.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module ALU_Control
 
 Top level modules:
 	ALU_Control
+
+} {} {}} {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v} {1 {vlog -work work -stats=none {E:/Computer Year 3/TERM1/COProject/MIPS/MIPS_PIPELINE_G10/Modules/MIPS_2.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module MIPS
+
+Top level modules:
+	MIPS
 
 } {} {}}

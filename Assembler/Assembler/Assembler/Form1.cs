@@ -31,7 +31,7 @@ namespace Assembler
 		static String program = System.IO.File.ReadAllText(PATH);
 		static List<String> instructions = new List<string>(program.Split('\n'));
 		static List<String> binary = new List<String>();
-        static String[,] Hazard = new String [30, 4];
+        static String[,] Hazard = new String [50, 5];
 
         //-----------------------------------------------------------------------------------
 
@@ -266,35 +266,38 @@ namespace Assembler
                 for (int j = 0; j < rofl.Length; j++)
                     Hazard[i, j] = rofl[j];
             }
+            String FilePath = @"C:\Users\lamee\Documents\MIPSProgramMem.txt";
+            String myFile = System.IO.File.ReadAllText(FilePath);
+            List<String> lines2 = new List<String>();
+            List<String> lines = new List<String>(myFile.Split('\n'));
 
-            for (int i = 0; i < 10-2; i++)
+            for (int i = 0; i < lines.Count; i++)
             {
+                lines2.Add(lines[i]);
+
                 if (Hazard[i, 1] == Hazard[i + 1, 2] || Hazard[i, 1] == Hazard[i + 1, 3] ||
-                    Hazard[i, 1] == Hazard[i + 2, 2] || Hazard[i, 1] == Hazard[i + 2, 3])
+                    Hazard[i, 1] == Hazard[i + 2, 2] || Hazard[i, 1] == Hazard[i + 2, 3] ||
+                    Hazard[i, 0] == "j" || Hazard[i, 0] == "jal" || Hazard[i, 0] == "jr")
                 {
-                    String FilePath = @"C:\Users\lamee\Documents\MIPSProgramMem.txt";
-                    String myFile = System.IO.File.ReadAllText(FilePath);
-                    List<String> lines = new List<String>(myFile.Split('\n'));
-                    for (int j = 0; j < lines.Count; j++)
-                    {
-                        if (j == i)
-                        {
-                            lines.Insert(i+1, "\r00000000 00000000 00000000 00000000");
-                            lines.Insert(i + 1, "\r00000000 00000000 00000000 00000000");
-                            lines.Insert(i+1, "\r00000000 00000000 00000000 00000000");
-                        }
-                        System.IO.File.WriteAllLines(FilePath, lines);
-                        break;
-                    }
+
+                            lines2.Add("\r00000000 00000000 00000000 00000000");
+                            lines2.Add("\r00000000 00000000 00000000 00000000");
+                            lines2.Add("\r00000000 00000000 00000000 00000000");
+
+                            
+                    
                     
                 }
+
             }
+
+            System.IO.File.WriteAllLines(FilePath, lines2);
         }
 
-        
 
-		//------------------------------------------------------------------------------------------
-		public Form1()
+
+        //------------------------------------------------------------------------------------------
+        public Form1()
 		{
 
 			InitializeComponent();
